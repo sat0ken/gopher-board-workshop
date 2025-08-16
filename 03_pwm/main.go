@@ -8,7 +8,7 @@ import (
 var period uint64 = 2e9
 
 func main() {
-    pin := machine.D27
+	pin := machine.D27
 	pwm := machine.PWM5
 
 	pwm.Configure(machine.PWMConfig{})
@@ -33,4 +33,3 @@ func main() {
 		}
 	}
 }
-
