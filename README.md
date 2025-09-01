@@ -54,7 +54,7 @@ LEDには向きがあります。足の短い方を-の列に挿して、長い�
 $ tinygo flash --target waveshare-rp2040-zero --size short ./00_blink/main.go
 ```
 
-### デジタル入力とシリアル通信
+### 01. デジタル入力とシリアル通信
 
 Gopherくん基板には6つのスイッチがついています。押されたスイッチを読み取るデジタル入力のプログラムを書き込みます。
 
@@ -73,7 +73,7 @@ button up is pressed!!
 
 Goのprintln関数は標準出力にメッセージを出力しますが、TinyGoのprintln関数はシリアルポートに出力します。
 
-### アナログ入力
+### 02. アナログ入力
 
 光センサーを使いアナログ入力を試してみます。
 スイッチによるデジタル入力は0か1になりますが、アナログ入力は0~1023, 0~65535など幅のある数値になります。
@@ -111,7 +111,7 @@ Connected to /dev/ttyACM0. Press Ctrl-C to exit.
 光センサーは明るさによって抵抗値が変化します。明るいときは抵抗値が小さく、暗くなると抵抗値が大きくなります。  
 明るいときは3.3vに近い値が流れますが、暗くなると抵抗値が大きくなるので流れる電流が減少します。そのため指で抑えると値が小さくなります。
 
-### アナログ出力
+### 03. アナログ出力
 
 PWM(Pulse Width Modulation: パルス幅変調)を利用したアナログ出力でLEDを光らせます。  
 プログラムを書くとLチカの時とはLEDの光り方が異なり、ホタルのよう暗くなったり明るくなったりと光ります。
@@ -125,21 +125,77 @@ PWMによるアナログ出力は、一定の周波数で高速でHIGHとLOWを�
 
 https://tinygo.org/tour/pwm/fade/
 
-### 赤外線リモコン
+### 04. フルカラーLED
+
+Gopherくんの目の部分にはフルカラーLEDのWS2812がついています。これを光らせてみましょう。  
+WS2812自体に小さなマイコンがついていてマイコンにRGBの信号を送ると光るようになっています。
+TinyGoではWS2812用のドライバがあるのでそれを利用します。
+
+```
+$ tinygo flash --target waveshare-rp2040-zero --size short ./04_ws1812/main.go
+```
+
+### 05. ブザーを鳴らす
+
+
+### 06. 温湿度センサー
+
+BME280というセンサーで温湿度や気圧を取得してみます。
+基板とブレットボードをジャンパー線で以下のように配線します。
+
+VCC - 3v3
+GND - GND
+GP0 - SDA
+GP1 - SCL
+
+![](./img/workshop/bme280.jpg)
+
+配線したらプログラムを書き込みます。
+
+```
+$ tinygo flash --target waveshare-rp2040-zero --size short ./06_bme280/main.go
+```
+
+プログラムを書き込んだら、`tinygo monitor`を実行します。
+温度が取れていることがわかります。
+
+```
+$ tinygo monitor
+Connected to /dev/ttyACM0. Press Ctrl-C to exit.
+Temperature: 29.37 °C
+Pressure: 1007.01 hPa
+Humidity: 0.00 %
+Altitude: 52 m
+Temperature: 29.39 °C
+Pressure: 1006.98 hPa
+Humidity: 0.00 %
+Altitude: 52 m
+```
+
+### 07. 赤外線リモコン
 
 テレビやエアコンなど家電で利用される赤外線リモコンの挙動をTinyGoで体験してみましょう。
 リモコンは送信と受信に分かれます。
 
-まず送信側のプログラムを書き込みます。
+送信側の回路はLEDを赤外線LEDに取り替えます。
+
+![](./img/workshop/ir_send.jpg)
+
+送信側のプログラムを書き込みます。
 
 ```
-$ tinygo flash --target waveshare-rp2040-zero --size short ./04_ir_recieve/main.go
+$ tinygo flash --target waveshare-rp2040-zero --size short ./07_ir_recieve/main.go
 ```
 
-次に受信側のプログラムを書き込みます。
+受信側の回路は赤外線受信モジュールをLEDの横に取り付けます。
+
+![](./img/workshop/ir_recv.jpg)
+
+
+受信側のプログラムを書き込みます。
 
 ```
-$ tinygo flash --target waveshare-rp2040-zero --size short ./04_ir_send/main.go
+$ tinygo flash --target waveshare-rp2040-zero --size short ./07_ir_send/main.go
 ```
 
 送信側はUpボタンを押すと赤外線LEDが光り、データを送信します。
@@ -149,15 +205,11 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./04_ir_send/main.go
 赤外線リモコンは、ボタンが押されると、そのボタンに対応した特定のパターンの赤外線信号を送信します。機器の受信側は、その光のパターンを読み取り、命令を実行します。  
 リモコンの信号は、この変調された赤外線の「ON（点滅している状態）」と「OFF（消えている状態）」の時間の長さの組み合わせで、「0」と「1」のデジタルデータを作り、情報を伝えています。
 
-### フルカラーLED
-
-Gopherくんの目の部分にはフルカラーLEDのWS2812がついています。これを光らせてみましょう。  
-WS2812自体に小さなマイコンがついていてマイコンにRGBの信号を送ると光るようになっています。
-TinyGoではWS2812用のドライバがあるのでそれを利用します。
-
-### ブザーを鳴らす
-
 
 ### 液晶画面に文字を出す
+
+```
+$ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789/main.go
+```
 
 ### [koebiten](https://github.com/sago35/koebiten)でゲームを遊んでみる
