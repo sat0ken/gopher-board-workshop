@@ -137,6 +137,12 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./04_ws1812/main.go
 
 ### 05. ブザーを鳴らす
 
+基板に付いているブザーで音を鳴らしてみましょう。
+プログラムを書き込むとドレミファソラシドの音が聞こえます。
+
+```
+$ tinygo flash --target waveshare-rp2040-zero --size short ./05_buzzer/main.go
+```
 
 ### 06. 温湿度センサー
 
@@ -157,7 +163,8 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./06_bme280/main.go
 ```
 
 プログラムを書き込んだら、`tinygo monitor`を実行します。
-温度が取れていることがわかります。
+温度や気圧が取れていることがわかります。
+湿度が取れていないのはBME280では取れないからです。
 
 ```
 $ tinygo monitor
@@ -214,7 +221,7 @@ NECフォーマットの信号は、以下の要素で構成されます。
 - ストップビット: データ送信の終了を示す信号です。
 - リピートコード: リモコンのボタンが押し続けられた場合に、一定周期（約108ms）で送信される信号です。これにより、電力消費の削減やボタン連打の識別を容易にします。
 
-### 0.8 液晶画面に文字を出す
+### 08-1 液晶画面に文字を出す
 
 液晶画面に文字を出してみましょう。
 以下のコマンドでプログラムを書き込みます。
@@ -222,5 +229,24 @@ NECフォーマットの信号は、以下の要素で構成されます。
 ```
 $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_txt/main.go
 ```
+
+### 08-2 液晶画面を塗りつぶす
+
+液晶画面を色で塗りつぶしてみましょう。
+以下のコマンドでプログラムを書き込みます。
+
+```
+$ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_bmp/main.go
+```
+
+### 08-3 液晶画面に画像を表示する
+
+液晶画面に画像を表示してみましょう。
+以下のコマンドでプログラムを書き込みます。
+
+```
+$ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_img/main.go
+```
+
 
 ### [koebiten](https://github.com/sago35/koebiten)でゲームを遊んでみる
