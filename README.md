@@ -214,10 +214,13 @@ NECフォーマットの信号は、以下の要素で構成されます。
 - ストップビット: データ送信の終了を示す信号です。
 - リピートコード: リモコンのボタンが押し続けられた場合に、一定周期（約108ms）で送信される信号です。これにより、電力消費の削減やボタン連打の識別を容易にします。
 
-### 液晶画面に文字を出す
+### 0.8 液晶画面に文字を出す
+
+液晶画面に文字を出してみましょう。
+以下のコマンドでプログラムを書き込みます。
 
 ```
-$ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789/main.go
+$ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_txt/main.go
 ```
 
 ### [koebiten](https://github.com/sago35/koebiten)でゲームを遊んでみる
