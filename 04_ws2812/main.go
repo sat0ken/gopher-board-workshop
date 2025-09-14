@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	neo  machine.Pin = machine.D2
+	neo  machine.Pin = machine.D29
 	leds [54]color.RGBA
 )
 
@@ -35,7 +35,6 @@ func main() {
 		ws.WriteColors(leds[:]) // LEDストリップに色を送信
 
 		offset = (offset + 1) % len(colors) // オフセットをシフト
-		time.Sleep(100 * time.Millisecond) // 遅延を挿入
+		time.Sleep(100 * time.Millisecond)  // 遅延を挿入
 	}
 }
-

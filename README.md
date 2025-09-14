@@ -4,12 +4,9 @@
 
 ![](./img/gopher-board.jpg)
 
-![](./img/gopher-board2.jpg)
-
-様々なデザインの基板がありますが、構成は同じです。
-
 ## 環境設定
 
+- Go のインストール
 - TinyGo のインストール
 
 以下より TinyGo をインストールしてください  
@@ -26,6 +23,16 @@ https://tinygo.org/getting-started/install/
 - ブザー
 - Grove端子
 
+## マイコンとは
+
+マイコンはCPU、メモリ、IOポートなどを備えた小さなコンピュータです。
+スマホやパソコンと何が異なるかというとCPUやメモリがある点では同じですが、だいたいのマイコンのクロック数がMHz、メモリはKB~数MBになります。
+当然マイコンではAndroidやiOS,MacやWindowsといったOSというものは存在せず、単一のプログラムが実行されます。
+
+スマホやパソコン用のCPUに比べるとマイコンは安価なため、電子レンジや炊飯器など家電製品や車載製品、おもちゃなどで使われています。
+
+このマイコンにスイッチやセンサーを接続してプログラムで制御するのがマイコンのプログミングになります。
+
 ## ワークショップ
 
 ### ブレットボード
@@ -34,13 +41,23 @@ https://tinygo.org/getting-started/install/
 ブレットボードはパーツを差し込んで簡単に電子回路を作成して試すことができるものです。
 外側の+-は縦方向に、A~EとF~Jは横方向に接続されています。
 
+![](./img/workshop/breadboard.jpg)
+
+https://iot.keicode.com/electronics/what-is-breadboard.php
+
+![](./img/workshop/breadboard2.jpg)
+
+裏側に金属板が入っていて縦と横に電気的に接続されています。
+
+https://shop.sunhayato.co.jp/blogs/problem-solving/breadboard
+
 Gopherくん基板とブレットボードを接続します。  
 3V3のPinに赤いジャンパー線を挿したら、ブレットボードの+に接続します。  
 GNDのPinに黒いジャンパー線を挿したら、ブレットボードの-に接続します。
 
 これで準備は完了です。
 
-### Lチカ
+### 00. Lチカ
 
 LEDには向きがあります。足の短い方を-の列に挿して、長い方はaに挿します。  
 抵抗をコの字に曲げて、LEDと同じ列に挿します。  
@@ -76,7 +93,7 @@ Goのprintln関数は標準出力にメッセージを出力しますが、TinyG
 ### 02. アナログ入力
 
 光センサーを使いアナログ入力を試してみます。
-スイッチによるデジタル入力は0か1になりますが、アナログ入力は0~1023, 0~65535など幅のある数値になります。
+スイッチによるデジタル入力は0か1になりますが、アナログ入力は0〜1023, 0〜65535など幅のある数値になります。
 
 光センサーの片方を+に挿してもう片方はbの列に挿します。  
 ジャンパー線を26と光センサーと同じ列に挿します。
@@ -129,7 +146,7 @@ https://tinygo.org/tour/pwm/fade/
 
 Gopherくんの目の部分にはフルカラーLEDのWS2812がついています。これを光らせてみましょう。  
 WS2812自体に小さなマイコンがついていてマイコンにRGBの信号を送ると光るようになっています。
-TinyGoではWS2812用のドライバがあるのでそれを利用します。
+TinyGoではWS2812用のドライバがあるので、ドライバを利用して光らせます。
 
 ```
 $ tinygo flash --target waveshare-rp2040-zero --size short ./04_ws1812/main.go
@@ -248,5 +265,9 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_bmp/main.
 $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_img/main.go
 ```
 
-
 ### [koebiten](https://github.com/sago35/koebiten)でゲームを遊んでみる
+
+
+## License
+
+The Go gopher was designed by Renee French. http://reneefrench.blogspot.com/
