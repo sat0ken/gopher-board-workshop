@@ -100,6 +100,12 @@ Goのprintln関数は標準出力にメッセージを出力しますが、TinyG
 
 ![](./img/workshop/cds_sensor.jpg)
 
+読み取ったアナログ値をデジタル値に変換するのをADC(Analog Degital Converter)といいます。  
+ADCが使えるピンはマイコンにより異なります。TinyGoのドキュメントを確認すると、26〜29がADCを使えるピンなので26を使用する必要があります。
+
+https://tinygo.org/docs/reference/microcontrollers/machine/waveshare-rp2040-zero/
+
+
 ```
 $ tinygo flash --target waveshare-rp2040-zero --size short ./02_analog_input/main.go
 ```
@@ -149,7 +155,8 @@ WS2812自体に小さなマイコンがついていてマイコンにRGBの信�
 TinyGoではWS2812用のドライバがあるので、ドライバを利用して光らせます。
 
 ```
-$ tinygo flash --target waveshare-rp2040-zero --size short ./04_ws1812/main.go
+$ cd ./04_ws2812
+$ tinygo flash --target waveshare-rp2040-zero --size short main.go
 ```
 
 ### 05. ブザーを鳴らす
@@ -166,22 +173,22 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./05_buzzer/main.go
 BME280というセンサーで温湿度や気圧を取得してみます。
 基板とブレットボードをジャンパー線で以下のように配線します。
 
-VCC - 3v3
-GND - GND
-GP0 - SDA
-GP1 - SCL
+VCC - 3v3  
+GND - GND  
+GP0 - SDA  
+GP1 - SCL  
 
 ![](./img/workshop/bme280.jpg)
 
 配線したらプログラムを書き込みます。
 
 ```
-$ tinygo flash --target waveshare-rp2040-zero --size short ./06_bme280/main.go
+$ cd ./06_bme280
+$ tinygo flash --target waveshare-rp2040-zero --size short main.go
 ```
 
 プログラムを書き込んだら、`tinygo monitor`を実行します。
 温度や気圧が取れていることがわかります。
-湿度が取れていないのはBME280では取れないからです。
 
 ```
 $ tinygo monitor
@@ -208,7 +215,7 @@ Altitude: 52 m
 送信側のプログラムを書き込みます。
 
 ```
-$ tinygo flash --target waveshare-rp2040-zero --size short ./07_ir_recieve/main.go
+$ tinygo flash --target waveshare-rp2040-zero --size short ./07_ir_send/main.go
 ```
 
 受信側の回路は赤外線受信モジュールをLEDの横に取り付けます。
@@ -219,7 +226,8 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./07_ir_recieve/main.
 受信側のプログラムを書き込みます。
 
 ```
-$ tinygo flash --target waveshare-rp2040-zero --size short ./07_ir_send/main.go
+$ cd ./07_ir_receive
+$ tinygo flash --target waveshare-rp2040-zero --size short main.go
 ```
 
 送信側はUpボタンを押すと赤外線LEDが光り、データを送信します。
@@ -244,6 +252,7 @@ NECフォーマットの信号は、以下の要素で構成されます。
 以下のコマンドでプログラムを書き込みます。
 
 ```
+$ cd ./08_st7789_txt
 $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_txt/main.go
 ```
 
@@ -253,6 +262,7 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_txt/main.
 以下のコマンドでプログラムを書き込みます。
 
 ```
+$ cd ./08_st7789_bmp
 $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_bmp/main.go
 ```
 
@@ -262,11 +272,39 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_bmp/main.
 以下のコマンドでプログラムを書き込みます。
 
 ```
+$ ./08_st7789_img
 $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_img/main.go
 ```
 
 ### [koebiten](https://github.com/sago35/koebiten)でゲームを遊んでみる
 
+koebitenはebitenをマイコン向けに移植したゲームエンジンです。
+koebitenで作成されたゲームを書き込んで遊んでみましょう。
+
+```
+$ git clone https://github.com/sago35/koebiten.git
+$ cd koebiten
+$ tinygo flash --target ./targets/gopher-board-spi.json --size short ./games/all
+```
+
+プログラムを書き込むと複数のゲームを選択して遊べるようになります。
+
+## 自由に遊ぼう
+
+これまでワークショップで試した内容を応用して遊んでみましょう。
+以下の例のようにワークショップで試した内容をかけ合わせると面白く遊べるでしょう。
+
+- スイッチが押されたらLEDを光らせる
+- スイッチが押されたらカラーLEDの色を変える
+- 簡易赤外線リモコンを作成する
+- 取得した電圧を画面に表示する
+- 取得した温度を画面に表示する
+
+自由に遊んでみましょう。
+
+また以下のページを読んでゲームを作成してみるのもよいでしょう。
+
+[koebiten でゲームを作ろう](https://zenn.dev/sago35/books/b0d993b62f05c9)
 
 ## License
 
