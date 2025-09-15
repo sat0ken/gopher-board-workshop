@@ -170,7 +170,7 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./05_buzzer/main.go
 
 ### 06. 温湿度センサー
 
-BME280というセンサーで温湿度や気圧を取得してみます。
+BMP280というセンサーで温度と気圧を取得してみます。
 基板とブレットボードをジャンパー線で以下のように配線します。
 
 VCC - 3v3  
@@ -183,12 +183,12 @@ GP1 - SCL
 配線したらプログラムを書き込みます。
 
 ```
-$ cd ./06_bme280
+$ cd ./06_bmp280
 $ tinygo flash --target waveshare-rp2040-zero --size short main.go
 ```
 
 プログラムを書き込んだら、`tinygo monitor`を実行します。
-温度や気圧が取れていることがわかります。
+温度と気圧が取れていることがわかります。
 
 ```
 $ tinygo monitor
@@ -202,6 +202,9 @@ Pressure: 1006.98 hPa
 Humidity: 0.00 %
 Altitude: 52 m
 ```
+
+湿度が0になっているのはBMP280だと湿度が取れないからです。
+上位モデルのBME280を使うと湿度も取得できます。
 
 ### 07. 赤外線リモコン
 
