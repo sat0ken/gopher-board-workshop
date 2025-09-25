@@ -29,7 +29,7 @@ https://tinygo.org/getting-started/install/
 
 マイコンはCPU、メモリ、IOポートなどを備えた小さなコンピュータです。
 スマホやパソコンと何が異なるかというとCPUやメモリがある点では同じですが、だいたいのマイコンのクロック数がMHz、メモリはKB〜MBになります。
-当然マイコンではAndroidやiOS,MacやWindowsといったOSというものは存在せず、1つのプログラムが実行されるだけになります。
+マイコンではAndroidやiOS,MacやWindowsといったOSというものは存在せず、1つのプログラムが実行されるだけになります。
 
 スマホやパソコン用のCPUに比べるとマイコンは安価なため、電子レンジや炊飯器など家電製品や車載製品、おもちゃなどで使われています。
 
@@ -42,6 +42,8 @@ TinyGoというプログラミング言語があるわけではなく、Goのコ
 
 様々なデバイスを動かすためドライバが用意されています。  
 普段Goでアプリやコマンドラインツールを作成するときと同じようにgo.modファイルでライブラリを管理できますし、tinygoコマンドをPATHに通すだけなので環境構築も用意にできます。
+
+詳しくは[公式ドキュメント](https://tinygo.org/getting-started/overview/)や sagoさんの[スライド](https://docs.google.com/presentation/d/1J0xpjHUulCg32N1uTMfcBEA3aggHt7TPDAt6eaOnb2Y/edit?slide=id.g26295a68cc4_0_0#slide=id.g26295a68cc4_0_0)、[基礎から学ぶ TinyGoの組込み開発](https://www.c-r.com/book/detail/1477)などをお読みください。
 
 ## ワークショップ
 
@@ -64,6 +66,10 @@ https://shop.sunhayato.co.jp/blogs/problem-solving/breadboard
 Gopherくん基板とブレットボードを接続します。  
 3V3のPinに赤いジャンパー線を挿したら、ブレットボードの+に接続します。  
 GNDのPinに黒いジャンパー線を挿したら、ブレットボードの-に接続します。
+
+マイコンのピン配置がわかりづらい場合は、以下の画像を見てください。
+
+![](./img/workshop/rp2040-zero-pinout.jpg)
 
 これで準備は完了です。
 
