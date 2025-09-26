@@ -43,7 +43,7 @@ TinyGoというプログラミング言語があるわけではなく、Goのコ
 様々なデバイスを動かすためドライバが用意されています。  
 普段Goでアプリやコマンドラインツールを作成するときと同じようにgo.modファイルでライブラリを管理できますし、tinygoコマンドをPATHに通すだけなので環境構築も用意にできます。
 
-詳しくは[公式ドキュメント](https://tinygo.org/getting-started/overview/)や sagoさんの[スライド](https://docs.google.com/presentation/d/1J0xpjHUulCg32N1uTMfcBEA3aggHt7TPDAt6eaOnb2Y/edit?slide=id.g26295a68cc4_0_0#slide=id.g26295a68cc4_0_0)、[基礎から学ぶ TinyGoの組込み開発](https://www.c-r.com/book/detail/1477)などをお読みください。
+詳しくは[公式ドキュメント](https://tinygo.org/getting-started/overview/)や [sagoさん](https://x.com/sago35tk)の[スライド](https://docs.google.com/presentation/d/1J0xpjHUulCg32N1uTMfcBEA3aggHt7TPDAt6eaOnb2Y/edit?slide=id.g26295a68cc4_0_0#slide=id.g26295a68cc4_0_0)、[基礎から学ぶ TinyGoの組込み開発](https://www.c-r.com/book/detail/1477)などをお読みください。
 
 ## ワークショップ
 
@@ -159,10 +159,17 @@ PWM(Pulse Width Modulation: パルス幅変調)を利用したアナログ出力
 $ tinygo flash --target waveshare-rp2040-zero --size short ./03_pwm/main.go
 ```
 
-PWMによるアナログ出力は、一定の周波数で高速でHIGHとLOWを切り替えることで供給する電力を制御します。  
+https://tinygo.org/tour/pwm/fade/
+
+PWMによるアナログ出力は、一定の周波数(デューティー比)で高速でHIGHとLOWを切り替えることで供給する電力を制御します。  
 供給される電力が高いときはLEDが明るく光り、電力が低いときはLEDが暗くなります。
 
-https://tinygo.org/tour/pwm/fade/
+![](./img/workshop/pwm.jpg)
+
+https://zakkuri-kaisetsu.com/led3/
+
+PWM出力を応用してモーターなどの回転数を制御します。  
+ONの時間が長くなれば回転数は上がり、短い場合は回転数が下がります。扇風機の強弱の仕組みです。
 
 ### 04. フルカラーLED
 
@@ -286,6 +293,9 @@ $ cd ./08_st7789_bmp
 $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_bmp/main.go
 ```
 
+基板についているST7789という液晶画面は240x240ピクセルの画面です。  
+main.goのプログラムではx=0, y=0 ~ x=240, y=240にかけてRGBの色を指定してセットしています。
+
 ### 08-3 液晶画面に画像を表示する
 
 液晶画面に画像を表示してみましょう。
@@ -294,6 +304,20 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_bmp/main.
 ```
 $ ./08_st7789_img
 $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_img/main.go
+```
+
+他の画像にするには `tools/main.go` を利用してバイナリファイルを生成して、main.goの11行目を差し替えてください。  
+以下のコマンド例で画像ファイルをバイナリファイルに変換します。
+
+```
+$ go run tools/main.go hoge.jpg >> 08_st7789_img/hoge.raw
+```
+
+以下を出力したバイナリファイル名に置き換えて書き込んでください。
+
+```
+//go:embed hoge.raw
+var imgData []byte
 ```
 
 ### [koebiten](https://github.com/sago35/koebiten)でゲームを遊んでみる
@@ -315,14 +339,14 @@ $ tinygo flash --target ./targets/gopher-board-spi.json --size short ./games/all
 以下の例のようにワークショップで試した内容をかけ合わせると面白く遊べるでしょう。
 
 - スイッチが押されたらLEDを光らせる
-- カラーLEDの色を変える
+- カラーLEDの色や点灯パターンを変える
 - 簡易赤外線リモコンを作成する
 - 取得した電圧を画面に表示する
 - 取得した温度を画面に表示する
 - 画面に好きな画像を表示する
+- スイッチを押したら画像が変わるフォトフレームにする
 
 自由に遊んでみましょう。
-
 また以下のページを読んでkoebitenでゲームを作成してみるのもよいでしょう。
 
 [koebiten でゲームを作ろう](https://zenn.dev/sago35/books/b0d993b62f05c9)
