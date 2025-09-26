@@ -40,7 +40,7 @@ https://tinygo.org/getting-started/install/
 TinyGoはGoを利用してマイコンなどを動かすためのコンパイラです。  
 TinyGoというプログラミング言語があるわけではなく、GoのコードをLLVMを利用してマイコン上で動作するバイナリファイルが生成されます。  
 
-様々なデバイスを動かすためドライバが用意されています。  
+様々なデバイスを動かすため[ドライバ](https://tinygo.org/docs/reference/devices/)がライブラリとして用意されています。  
 普段Goでアプリやコマンドラインツールを作成するときと同じようにgo.modファイルでライブラリを管理できますし、tinygoコマンドをPATHに通すだけなので環境構築も用意にできます。
 
 詳しくは[公式ドキュメント](https://tinygo.org/getting-started/overview/)や [sagoさん](https://x.com/sago35tk)の[スライド](https://docs.google.com/presentation/d/1J0xpjHUulCg32N1uTMfcBEA3aggHt7TPDAt6eaOnb2Y/edit?slide=id.g26295a68cc4_0_0#slide=id.g26295a68cc4_0_0)、[基礎から学ぶ TinyGoの組込み開発](https://www.c-r.com/book/detail/1477)などをお読みください。
@@ -336,7 +336,7 @@ $ tinygo flash --target ./targets/gopher-board-spi.json --size short ./games/all
 ## 自由に遊ぼう
 
 これまでワークショップで試した内容を応用して遊んでみましょう。
-以下の例のようにワークショップで試した内容をかけ合わせると面白く遊べるでしょう。
+以下の例のようにワークショップで試した内容をかけ合わせたり、応用をすると面白く遊べるでしょう。
 
 - スイッチが押されたらLEDを光らせる
 - カラーLEDの色や点灯パターンを変える
@@ -345,6 +345,7 @@ $ tinygo flash --target ./targets/gopher-board-spi.json --size short ./games/all
 - 取得した温度を画面に表示する
 - 画面に好きな画像を表示する
 - スイッチを押したら画像が変わるフォトフレームにする
+- ブザーで曲を演奏する
 
 自由に遊んでみましょう。
 また以下のページを読んでkoebitenでゲームを作成してみるのもよいでしょう。
