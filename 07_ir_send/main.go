@@ -93,12 +93,12 @@ func main() {
 	duty = pwm.Top() / 2
 
 	for {
-		println("Sending IR signal...")
 
 		if !button1.Get() {
 			// NECフレームを送信 (カスタムコード: 0x04, データコード: 0x0C)
+			println("Sending IR signal...")
 			sendNECFrame(0x04, 0x0C)
-			time.Sleep(time.Millisecond * 1000)
+			time.Sleep(time.Millisecond * 100)
 		}
 	}
 }

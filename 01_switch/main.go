@@ -15,7 +15,6 @@ func main() {
 			println("button up is pressed!!")
 		}
 
-		time.Sleep(time.Millisecond * 1000)
+		time.Sleep(time.Millisecond * 100)
 	}
 }
-
