@@ -284,7 +284,7 @@ NECフォーマットの信号は、以下の要素で構成されます。
 
 ```
 $ cd ./08_st7789_txt
-$ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_txt/main.go
+$ tinygo flash --target waveshare-rp2040-zero --size short main.go
 ```
 
 ### 08-2 液晶画面を塗りつぶす
@@ -294,7 +294,7 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_txt/main.
 
 ```
 $ cd ./08_st7789_bmp
-$ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_bmp/main.go
+$ tinygo flash --target waveshare-rp2040-zero --size short main.go
 ```
 
 基板についているST7789という液晶画面は240x240ピクセルの画面です。  
@@ -306,8 +306,8 @@ main.goのプログラムではx=0, y=0 ~ x=240, y=240にかけてRGBの色を�
 以下のコマンドでプログラムを書き込みます。
 
 ```
-$ ./08_st7789_img
-$ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_img/main.go
+$ cd ./08_st7789_img
+$ tinygo flash --target waveshare-rp2040-zero --size short main.go
 ```
 
 11行目を以下のようにするとTinyGoのロゴが表示されます。
