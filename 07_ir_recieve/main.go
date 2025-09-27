@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	pinLED  = machine.D27
+	pinLED  = machine.D26
 	pinIRIn = machine.D15
 	ir      irremote.ReceiverDevice
 	ch      chan irremote.Data

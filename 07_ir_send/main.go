@@ -67,7 +67,7 @@ func sendNECFrame(address uint8, command uint8) {
 // プログラムのエントリーポイント
 func main() {
 	// --- ハードウェアの初期設定 ---
-	pin := machine.D27 // 赤外線LEDを接続するピン
+	pin := machine.D26 // 赤外線LEDを接続するピン
 
 	button1 := machine.D3
 	button1.Configure(machine.PinConfig{Mode: machine.PinInputPullup})
