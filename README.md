@@ -77,7 +77,7 @@ GNDのPinに黒いジャンパー線を挿したら、ブレットボードの-�
 
 LEDには向きがあります。足の短い方を-の列に挿して、長い方はaに挿します。  
 抵抗をコの字に曲げて、LEDと同じ列に挿します。  
-抵抗を挿したらジャンパー線を29に挿して、もう片方を抵抗と同じ列に挿します。
+抵抗を挿したらジャンパー線を26に挿して、もう片方を抵抗と同じ列に挿します。
 
 ![](./img/workshop/led.jpg)
 
@@ -155,6 +155,8 @@ Connected to /dev/ttyACM0. Press Ctrl-C to exit.
 PWM(Pulse Width Modulation: パルス幅変調)を利用したアナログ出力でLEDを光らせます。  
 プログラムを書くとLチカの時とはLEDの光り方が異なり、ホタルのよう暗くなったり明るくなったりと光ります。
 
+配線はLチカのときと同じように26と接続してください。
+
 ```
 $ tinygo flash --target waveshare-rp2040-zero --size short ./03_pwm/main.go
 ```
@@ -195,6 +197,8 @@ $ tinygo flash --target waveshare-rp2040-zero --size short ./05_buzzer/main.go
 
 BMP280というセンサーで温度と気圧を取得してみます。
 基板とブレットボードをジャンパー線で以下のように配線します。
+
+基板に黒と赤の線を予めさしてあるので、そことあわせるようにセンサーを挿してください。
 
 VCC - 3v3  
 GND - GND  

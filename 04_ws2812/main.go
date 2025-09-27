@@ -10,7 +10,7 @@ import (
 
 var (
 	neo  machine.Pin = machine.D29
-	leds [54]color.RGBA
+	leds [2]color.RGBA
 )
 
 func main() {
@@ -18,12 +18,12 @@ func main() {
 	ws := ws2812.NewWS2812(neo)
 
 	colors := []color.RGBA{
-		{R: 255, G: 0, B: 0},   // 赤
-		{R: 0, G: 255, B: 0},   // 緑
-		{R: 0, G: 0, B: 255},   // 青
-		{R: 255, G: 255, B: 0}, // 黄色
-		{R: 0, G: 255, B: 255}, // シアン
-		{R: 255, G: 0, B: 255}, // マゼンタ
+		{R: 64, G: 0, B: 0},  // 赤
+		{R: 0, G: 64, B: 0},  // 緑
+		{R: 0, G: 0, B: 64},  // 青
+		{R: 64, G: 64, B: 0}, // 黄色
+		{R: 0, G: 64, B: 64}, // シアン
+		{R: 64, G: 0, B: 64}, // マゼンタ
 	}
 
 	offset := 0 // 色のオフセットを管理
