@@ -238,7 +238,7 @@ Altitude: 52 m
 テレビやエアコンなど家電で利用される赤外線リモコンの挙動をTinyGoで体験してみましょう。
 リモコンは送信と受信に分かれます。
 
-送信側の回路はLEDを赤外線LEDに取り替えます。
+送信側の回路はLEDを赤外線LEDに取り替えます。ピンは26のままです。
 
 ![](./img/workshop/ir_send.jpg)
 
@@ -308,6 +308,13 @@ main.goのプログラムではx=0, y=0 ~ x=240, y=240にかけてRGBの色を�
 ```
 $ ./08_st7789_img
 $ tinygo flash --target waveshare-rp2040-zero --size short ./08_st7789_img/main.go
+```
+
+11行目を以下のようにするとTinyGoのロゴが表示されます。
+
+```
+//go:embed tinygo-logo.raw
+var imgData []byte
 ```
 
 他の画像にするには `tools/main.go` を利用してバイナリファイルを生成して、main.goの11行目を差し替えてください。  
