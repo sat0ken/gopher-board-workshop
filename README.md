@@ -321,7 +321,7 @@ var imgData []byte
 以下のコマンド例で画像ファイルをバイナリファイルに変換します。
 
 ```
-$ go run tools/main.go hoge.jpg >> 08_st7789_img/hoge.raw
+$ go run tools/main.go hoge.jpg 08_st7789_img/hoge.raw
 ```
 
 以下を出力したバイナリファイル名に置き換えて書き込んでください。
