@@ -37,7 +37,7 @@ https://akizukidenshi.com/catalog/g/g102762/
 
 ## 組み立て
 
-※目にLEDがついていない状態から始めるはんだ付け上級者は本ページ下部の[上級者向け組み立て](https://github.com/sat0ken/gopher-board-workshop/blob/main/build.md#%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6)を先にやってください。
+※目にLEDがついていない状態から始めるはんだ付け上級者は本ページ下部の[はんだ付け上級者向け組み立て](https://github.com/sat0ken/gopher-board-workshop/blob/main/build.md#はんだ付け上級者向け組み立て)を先にやってください。
 
 マイコンの袋を開けます。中に9ピンのピンヘッダーが2つ入っているので、はんだ付けするときの固定用ブレットボードに挿します。
 5ピンのピンヘッダーは後ではんだ付けするので残しておいてください。
