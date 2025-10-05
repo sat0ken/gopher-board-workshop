@@ -1,6 +1,39 @@
 # Gopherくん基板ビルドガイド
 
-## 必要なパーツ
+## パーツリスト
+
+- マイコン 1つ  
+https://www.switch-science.com/products/7886
+https://www.sengoku.co.jp/mod/sgk_cart/detail.php?code=EEHD-6633
+
+	※aliexpress(安い)  
+https://ja.aliexpress.com/item/1005004383458678.html
+
+- 液晶 1つ  
+https://akizukidenshi.com/catalog/g/g131019/
+
+	※aliexpress(安い)  
+https://ja.aliexpress.com/item/1005008349075553.html
+
+- タクトスイッチ 1つ  
+https://akizukidenshi.com/catalog/g/g101282/
+
+- Groveコネクタ 1つ  
+https://akizukidenshi.com/catalog/g/g112634/
+
+- ブザー 1つ  
+https://akizukidenshi.com/catalog/g/g104118/
+
+- WS2812 2つ  
+https://akizukidenshi.com/catalog/g/g107915/
+
+- ピンソケット(9ピン) 2つ  
+https://akizukidenshi.com/catalog/g/g110100/
+
+- ピンソケット(5ピン) 1つ  
+https://akizukidenshi.com/catalog/g/g102762/
+
+- 330ΩSMD抵抗 2012_0805 1つ
 
 ## 組み立て
 
