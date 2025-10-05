@@ -37,7 +37,7 @@ https://akizukidenshi.com/catalog/g/g102762/
 
 ## 組み立て
 
-※目にLEDがついていない状態から始めるはんだ付け上級者はページ下部の上級者向け組み立てを先にやってください。
+※目にLEDがついていない状態から始めるはんだ付け上級者は本ページ下部の[上級者向け組み立て](https://github.com/sat0ken/gopher-board-workshop/blob/main/build.md#%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6)を先にやってください。
 
 マイコンの袋を開けます。中に9ピンのピンヘッダーが2つ入っているので、はんだ付けするときの固定用ブレットボードに挿します。
 5ピンのピンヘッダーは後ではんだ付けするので残しておいてください。
@@ -157,4 +157,4 @@ WS2812をはんだ付けしたら横から見てはんだが流れているか�
 
 ![](./img/build/solder_pro2.jpg)
 
-以上です。ページ上部の組み立てに戻ってください。
+以上です。ページ上部の[組み立て](https://github.com/sat0ken/gopher-board-workshop/blob/main/build.md#%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6)に戻ってください。
