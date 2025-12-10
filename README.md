@@ -37,6 +37,12 @@ https://tinygo.org/getting-started/install/
 
 またマイコンの周囲のピンソケットからジャンパー線、ブレットボードを利用して任意のセンサーやデバイスを接続することができます。
 
+## 回路図
+
+![](./img/gopher-board-schematic.png)
+
+[PDF](./gopher_pirot.pdf)
+
 ## マイコンとは
 
 マイコンはCPU、メモリ、IOポートなどを備えた小さなコンピュータです。
