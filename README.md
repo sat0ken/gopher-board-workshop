@@ -349,6 +349,13 @@ $ go run tools/main.go hoge.jpg 08_st7789_img/hoge.raw
 var imgData []byte
 ```
 
+以下のディレクトリに移動してプログラムを書き込むと、上のボタンで画像を切り替えられます。
+
+```
+$ cd ./08_st7789_multi_img
+$ tinygo flash --target waveshare-rp2040-zero --size short main.go
+```
+
 ### [koebiten](https://github.com/sago35/koebiten)でゲームを遊んでみる
 
 koebitenはebitenをマイコン向けに移植したゲームエンジンです。
